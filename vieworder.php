@@ -247,7 +247,139 @@
 			
 		</td> </center>
 
-	
+<?php
+       $servername = "localhost";
+       $username = "root";
+       $password = "";
+       $dbname = "classicmodels";
+
+	   
+       $conn = new mysqli($servername, $username, $password, $dbname);
+      
+       if ($conn->connect_error) {
+		   
+         die("Connection failed: " . $conn->connect_error);
+		 
+       } 
+	   
+       $sql = "SELECT * from orderdetails";
+       $result = $conn->query($sql); 
+
+?> 
+
+<br> <br> 
+   <center>
+   <div class="table-users">
+   <div class="header"><font size=5> Order Details </font></div>
+   <table cellspacing="10">
+   <br>
+	   
+       <table cellpadding="10"> <tr> <thead>
+       
+		  <th>Order No.</th>
+		  <th>Product Code</th>
+		  <th>Quantity</th>
+		  <th>Price Each</th>
+		  <th>Order Line No.</th>
+       	 
+       </thead> </tr>
+
+<?php
+
+		if ($result->num_rows > 0) {
+			//
+        while($row = $result->fetch_assoc()) { 
+		
+?>			
+            <tr>
+			<td ><?php echo $row['orderNumber'] ?></td> 
+			<td><?php echo $row['productCode'] ?></td>
+			<td><?php echo $row['quantityOrdered'] ?></td>
+			<td><?php echo $row['priceEach'] ?></td>
+			<td><?php echo $row['orderLineNumber'] ?></td>
+            </tr>	 
+			
+			
+<?php 
+        }
+		
+  	    }else echo "<script type=\"text/javascript\">window.alert('Data Base Empty');
+					window.location.href = '/lab01/Welcome.html';</script>"; ; 
+        $conn->close(); 
+    
+?>
+		 <table> <center> <td> 
+			
+		</center>
+    </form>
+			
+		</td> </center>	
+
+<?php
+       $servername = "localhost";
+       $username = "root";
+       $password = "";
+       $dbname = "classicmodels";
+
+	   
+       $conn = new mysqli($servername, $username, $password, $dbname);
+      
+       if ($conn->connect_error) {
+		   
+         die("Connection failed: " . $conn->connect_error);
+		 
+       } 
+	   
+       $sql = "SELECT * from productlines";
+       $result = $conn->query($sql); 
+
+?> 
+
+<br> <br> 
+   <center>
+   <div class="table-users">
+   <div class="header"><font size=5> Product Lines </font></div>
+   <table cellspacing="10">
+   <br>
+	   
+       <table cellpadding="10"> <tr> <thead>
+       
+		  <th>Product Line</th>
+		  <th>Text Desc</th>
+		  <th>HTML Desc</th>
+		  <th>Image</th>
+       	 
+       </thead> </tr>
+
+<?php
+
+		if ($result->num_rows > 0) {
+			//
+        while($row = $result->fetch_assoc()) { 
+		
+?>			
+            <tr>
+			<td ><?php echo $row['productLine'] ?></td> 
+			<td><?php echo $row['textDescription'] ?></td>
+			<td><?php echo $row['htmlDescription'] ?></td>
+			<td><?php echo $row['image'] ?></td>
+            </tr>	 
+			
+			
+<?php 
+        }
+		
+  	    }else echo "<script type=\"text/javascript\">window.alert('Data Base Empty');
+					window.location.href = '/lab01/Welcome.html';</script>"; ; 
+        $conn->close(); 
+    
+?>
+		 <table> <center> <td> 
+			
+		</center>
+    </form>
+			
+		</td> </center>	<br><br>	
 
 	
 </body>
