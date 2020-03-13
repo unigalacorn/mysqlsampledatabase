@@ -382,5 +382,226 @@
 		</td> </center>	<br><br>	
 
 	
+		
+<?php
+       $servername = "localhost";
+       $username = "root";
+       $password = "";
+       $dbname = "classicmodels";
+
+	   
+       $conn = new mysqli($servername, $username, $password, $dbname);
+      
+       if ($conn->connect_error) {
+		   
+         die("Connection failed: " . $conn->connect_error);
+		 
+       } 
+	   
+       $sql = "SELECT * from `orders`";
+       $result = $conn->query($sql); 
+
+?> 	
+	<br> <br> <br> <br> <br> <br> <br>
+   <center>
+   <div class="table-users">
+   <div class="header"><font size=5> Orders </font></div>
+   <table cellspacing="0">
+   <br>
+	   
+       <table cellpadding="10"> <tr> <thead>
+       
+		  <th>Order Number</th>
+       	  <th>Order Date</th>
+       	  <th>Required Date</th>
+       	  <th>Shipped Date</th>
+		  <th>Status</th>
+       	  <th>Comments</th>
+		  <th>Customer Number</th>
+       	
+       	 
+       </thead> </tr>
+
+
+<?php
+
+		if ($result->num_rows > 0) {
+			//
+        while($row = $result->fetch_assoc()) { 
+		
+?>
+            <tr>
+			<td><?php echo $row['orderNumber'] ?> </td>	
+            <td><?php echo $row['orderDate'] ?> </td>	
+            <td><?php echo $row['requiredDate'] ?> </td>	
+            <td><?php echo $row['shippedDate'] ?> </td>
+            <td><?php echo $row['status'] ?> </td>	
+			<td><center><?php echo $row['comments'] ?></center> </td>
+			<td><?php echo $row['customerNumber'] ?> </td>
+            </tr>	
+			
+					
+<?php 
+        }
+		
+  	    }else echo "<script type=\"text/javascript\">window.alert('Data Base Empty');
+					window.location.href = '/lab01/Welcome.html';</script>"; ; 
+        $conn->close(); 
+    
+?>
+		 <table> <center> <td> 
+			
+		</center>
+    </form>
+			
+		</td> </center>
+	
+		
+<?php
+       $servername = "localhost";
+       $username = "root";
+       $password = "";
+       $dbname = "classicmodels";
+
+	   
+       $conn = new mysqli($servername, $username, $password, $dbname);
+      
+       if ($conn->connect_error) {
+		   
+         die("Connection failed: " . $conn->connect_error);
+		 
+       } 
+	   
+       $sql = "SELECT * from `payments`";
+       $result = $conn->query($sql); 
+
+?> 	
+	<br> <br> <br> <br> <br> <br> <br>
+   <center>
+   <div class="table-users">
+   <div class="header"><font size=5> Payments </font></div>
+   <table cellspacing="0">
+   <br>
+	   
+       <table cellpadding="10"> <tr> <thead>
+       
+		  <th>Customer Number</th>
+       	  <th>Check Number</th>
+       	  <th>Payment Date</th>
+       	  <th>Amount</th>
+       	
+       	 
+       </thead> </tr>
+
+
+<?php
+
+		if ($result->num_rows > 0) {
+			//
+        while($row = $result->fetch_assoc()) { 
+		
+?>
+            <tr>
+			<td><?php echo $row['customerNumber'] ?> </td>	
+            <td><?php echo $row['checkNumber'] ?> </td>	
+            <td><?php echo $row['paymentDate'] ?> </td>	
+            <td><?php echo $row['amount'] ?> </td>
+            </tr>	
+			
+					
+<?php 
+        }
+		
+  	    }else echo "<script type=\"text/javascript\">window.alert('Data Base Empty');
+					window.location.href = '/lab01/Welcome.html';</script>"; ; 
+        $conn->close(); 
+    
+?>
+		 <table> <center> <td> 
+			
+		</center>
+    </form>
+			
+		</td> </center>
+
+		
+<?php
+       $servername = "localhost";
+       $username = "root";
+       $password = "";
+       $dbname = "classicmodels";
+
+	   
+       $conn = new mysqli($servername, $username, $password, $dbname);
+      
+       if ($conn->connect_error) {
+		   
+         die("Connection failed: " . $conn->connect_error);
+		 
+       } 
+	   
+       $sql = "SELECT * from `products`";
+       $result = $conn->query($sql); 
+
+?> 	
+	<br> <br> <br> <br> <br> <br> <br>
+   <center>
+   <div class="table-users">
+   <div class="header"><font size=5> Products </font></div>
+   <table cellspacing="0">
+   <br>
+	   
+       <table cellpadding="10"> <tr> <thead>
+       
+		  <th>Product Code</th>
+       	  <th>Product Name</th>
+       	  <th>Product Line</th>
+       	  <th>Product Scale</th>
+		  <th>Product Vendor</th>
+       	  <th>Product Description</th>
+		  <th>Quantity in Stock</th>
+		  <th>Buy Price</th>
+       	  <th>MSRP</th>
+       	
+       	 
+       </thead> </tr>
+
+
+<?php
+
+		if ($result->num_rows > 0) {
+			//
+        while($row = $result->fetch_assoc()) { 
+		
+?>
+            <tr>
+			<td><?php echo $row['productCode'] ?> </td>	
+            <td><?php echo $row['productName'] ?> </td>	
+            <td><?php echo $row['productLine'] ?> </td>	
+            <td><?php echo $row['productScale'] ?> </td>
+            <td><?php echo $row['productVendor'] ?> </td>	
+			<td><?php echo $row['productDescription'] ?> </td>
+			<td><?php echo $row['quantityInStock'] ?> </td>
+			<td><?php echo $row['buyPrice'] ?> </td>
+			<td><?php echo $row['MSRP'] ?> </td>
+            </tr>	
+			
+					
+<?php 
+        }
+		
+  	    }else echo "<script type=\"text/javascript\">window.alert('Data Base Empty');
+					window.location.href = '/lab01/Welcome.html';</script>"; ; 
+        $conn->close(); 
+    
+?>
+		 <table> <center> <td> 
+			
+		</center>
+    </form>
+			
+		</td> </center>
+	
+
 </body>
 </html>
